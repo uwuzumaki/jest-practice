@@ -35,4 +35,16 @@ const caesarCipher = (string, shift) => {
     .join("");
 };
 
-export { capitalize, reverseString, calculator, caesarCipher };
+const analyzeArray = (array) => {
+  const sortedA = array.sort((a, b) => a - b);
+  const length = sortedA.length;
+  const average = array.reduce((value, current) => value + current, 0) / length;
+  return {
+    average: average,
+    min: sortedA[0],
+    max: sortedA[length - 1],
+    length: length,
+  };
+};
+
+export { capitalize, reverseString, calculator, caesarCipher, analyzeArray };

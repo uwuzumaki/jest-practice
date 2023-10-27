@@ -3,6 +3,7 @@ import {
   capitalize,
   reverseString,
   caesarCipher,
+  analyzeArray,
 } from "./assignment";
 
 test("Capitalize the first character of a string", () => {
@@ -40,5 +41,20 @@ describe("Cesar Cipher", () => {
   });
   test("Ignore punctuation", () => {
     expect(caesarCipher("Hello!", 1)).toMatch("Ifmmp!");
+  });
+});
+
+describe("Array Analysis", () => {
+  test("Average", () => {
+    expect(analyzeArray([1, 8, 3, 4, 2, 6]).average).toEqual(4);
+  });
+  test("Min", () => {
+    expect(analyzeArray([1, 8, 3, 4, 2, 6]).min).toEqual(1);
+  });
+  test("Max", () => {
+    expect(analyzeArray([1, 8, 3, 4, 2, 6]).max).toEqual(8);
+  });
+  test("Length", () => {
+    expect(analyzeArray([1, 8, 3, 4, 2, 6]).length).toEqual(6);
   });
 });
