@@ -1,24 +1,44 @@
-import { calculator, capitalize, reverseString } from "./assignment";
+import {
+  calculator,
+  capitalize,
+  reverseString,
+  caesarCipher,
+} from "./assignment";
 
-it("Capitalize the first character of a string", () => {
+test("Capitalize the first character of a string", () => {
   expect(capitalize("button")).toMatch("Button");
 });
 
-it("Reverses a given string", () => {
+test("Reverses a given string", () => {
   expect(reverseString("button")).toMatch("nottub");
 });
 
 describe("Calculator", () => {
-  it("Addition", () => {
+  test("Addition", () => {
     expect(calculator.add(1, 1)).toEqual(2);
   });
-  it("Subtraction", () => {
+  test("Subtraction", () => {
     expect(calculator.subtract(2, 1)).toEqual(1);
   });
-  it("Divide", () => {
+  test("Divide", () => {
     expect(calculator.divide(4, 2)).toEqual(2);
   });
-  it("Multiply", () => {
+  test("Multiply", () => {
     expect(calculator.multiply(3, 3)).toEqual(9);
+  });
+});
+
+describe("Cesar Cipher", () => {
+  test("Non wrapping", () => {
+    expect(caesarCipher("b", 4)).toMatch("f");
+  });
+  test("Wrapping Z to A", () => {
+    expect(caesarCipher("z", 1)).toMatch("a");
+  });
+  test("Case preservation", () => {
+    expect(caesarCipher("Z", 1)).toMatch("A");
+  });
+  test("Ignore punctuation", () => {
+    expect(caesarCipher("Hello!", 1)).toMatch("Ifmmp!");
   });
 });
